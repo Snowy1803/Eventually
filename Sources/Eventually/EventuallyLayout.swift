@@ -151,7 +151,7 @@ public struct EventuallyLayout: Layout {
                 let originY = CGFloat(localStartDate.timeIntervalSince(startOfDay)) * pointsPerSecond
                 let maxHeight = fullHeight - originY
                 // round it down so fractional values do not accidentally intersect, and -1 to make a padding between vertical events
-                let height = max(min(localInterval.duration * pointsPerSecond, maxHeight), config.minEventHeight).rounded(to: 2, rule: .down) - 1
+                let height = max(min(CGFloat(localInterval.duration) * pointsPerSecond, maxHeight), config.minEventHeight).rounded(to: 2, rule: .down) - 1
                 eventRect = CGRect(
                     x: 0,
                     y: originY,
